@@ -1,0 +1,17 @@
+[package]
+name = "bevy_retro_demo"
+version = "0.1.0"
+authors = ["David Konsumer <konsumer@jetboystudio.com>"]
+edition = "2018"
+
+
+[dependencies.bevy]
+git = "https://github.com/bevyengine/bevy"
+branch = "main"
+default-features = false
+features = ["bevy_winit", "x11"]
+
+[dependencies.bevy_retro]
+git = "https://github.com/katharostech/bevy_retro"
+branch = "master"
+default-features = true
