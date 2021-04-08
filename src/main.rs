@@ -8,7 +8,7 @@ struct GameStage;
 fn main() {
     App::build()
         .insert_resource(WindowDescriptor {
-            title: "Bevy Retro Hello World".into(),
+            title: "Bevy Retro Scene Loader".into(),
             ..Default::default()
         })
         .add_plugins(RetroPlugins)
@@ -29,6 +29,10 @@ fn setup(
     asset_server: Res<AssetServer>,
     mut scene_graph: ResMut<SceneGraph>,
 ) {
+    // TODO: do all this from the ron file, using bevy_retro struct-types
+    // see https://github.com/bevyengine/bevy/blob/master/examples/scene/scene.rs
+    // and https://github.com/bevyengine/bevy/blob/HEAD/crates/bevy_scene/src/dynamic_scene.rs
+    
     // Load our sprites
     let red_radish_image = asset_server.load("redRadish.png");
     let yellow_radish_image = asset_server.load("yellowRadish.png");
@@ -92,6 +96,7 @@ fn setup(
     });
 }
 
+// TODO: figure out how to tie this to a dynamic function (in wasm?)
 fn move_player(keyboard_input: Res<Input<KeyCode>>, mut query: Query<&mut Position, With<Player>>) {
     for mut pos in query.iter_mut() {
         const SPEED: i32 = 1;

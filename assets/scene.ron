@@ -1,0 +1,13 @@
+
+  (
+    entity: 0,
+    components: [
+      {
+        "type": "Sprite",
+        "map": { 
+          "path": "blueRadish.png",
+        },
+      },
+    ]
+  )
+]
